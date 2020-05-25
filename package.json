@@ -24,7 +24,7 @@
     "xhr2": "*"
   },
   "engines": {
-    "node": "10.x"
+    "node": "12.x"
   },
   "repository": {
     "url": "https://github.com/juvian/discord-image-dupe"
