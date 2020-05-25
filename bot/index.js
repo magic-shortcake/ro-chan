@@ -90,7 +90,7 @@ async function processMessagesFromChannel (message, config, field) {
     await processMessages(messages.array(), config);
 
     if (messages.size) {
-      updates[field] = config[field] = (field == "before" ? messages.lastKey() : messages.firstKey());
+      updates[field] = config[field] = (field == 'before' ? messages.lastKey() : messages.firstKey());
     }
 
     await db.channels.update({_id: config._id}, {$set: updates});
