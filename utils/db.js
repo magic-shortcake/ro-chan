@@ -4,7 +4,7 @@ const bot = require('../bot/index.js');
 async function getServerConfig (serverId) {
   let config = await db.servers.findOne({_id: serverId});
   if (config == null) {
-    config = await db.servers.insert({_id: serverId, prefix: '!', history: 30, modRole: 'Futaba Mod', adminRole: 'Futaba Admin'});
+    config = await db.servers.insert({_id: serverId, prefix: '!', history: 30, modRole: 'Bot Mod', adminRole: 'Bot Admin'});
   }
   return config;
 }
