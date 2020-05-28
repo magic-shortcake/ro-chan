@@ -83,7 +83,7 @@ async function processMessagesFromChannel (message, config, field) {
   let now = new Date();
   now.setDate(now.getDate() - days);
 
-  while (true) {
+  //while (true) {
     let opts = {limit: 100, [field]: config[field]}
     let messages = await client.channels.get(config._id).fetchMessages(opts);
     let updates = {_id: config._id}
@@ -95,14 +95,14 @@ async function processMessagesFromChannel (message, config, field) {
 
     await db.channels.update({_id: config._id}, {$set: updates});
     
-    if (messages.size < 100 || (now.getTime() > messages.last().createdTimestamp)) {
+    /*if (messages.size < 100 || (now.getTime() > messages.last().createdTimestamp)) {
       if (field == "after") field = "before";
       else {
         await db.channels.update({_id: config._id}, {$set: {scannedOnce: true}});
         break;
       }
-    }
-  }
+    }*/
+  //}
   
   await dbUtils.deleteOldImages([message.channel.id], message.guild.id);
 }
