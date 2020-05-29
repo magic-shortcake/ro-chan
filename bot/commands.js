@@ -233,7 +233,7 @@ async function processCommands(commands, command, message) {
                 return await commands[cmd](message, command.split(cmd)[1].split(/ +/).filter(s => s.length))
             }
         }
-        return bot.notify(message, "Command not recognized, do !commands for list of commands");
+        //return bot.notify(message, "Command not recognized, do !commands for list of commands");
     }
   } catch (ex) {
       if (ex instanceof botUtils.CustomError) return bot.notify(message, ex.message);
